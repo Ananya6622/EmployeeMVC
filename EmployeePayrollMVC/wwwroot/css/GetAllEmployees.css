@@ -1,0 +1,13 @@
+﻿/*.table {
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100vh-80px);
+    background-color: cornsilk;
+    padding: 10px 0 5px;
+    box-sizing: border-box;
+}*/
+
+table,th,td{
+    background-color: cornsilk;
+    border: 1px solid;
+}
