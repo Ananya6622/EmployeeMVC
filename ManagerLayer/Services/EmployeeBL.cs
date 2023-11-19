@@ -36,6 +36,14 @@ namespace ManagerLayer.Services
         {
             return employeeRL.GetEmployeeData(id);
         }
+        public EmployeeModel Login(EmpLogin empLogin)
+        {
+            return employeeRL.Login(empLogin);
+        }
+        public EmployeeModel GetEmployeeByName(string name)
+        {
+            return employeeRL.GetEmployeeByName(name);
+        }
     }
 
 }

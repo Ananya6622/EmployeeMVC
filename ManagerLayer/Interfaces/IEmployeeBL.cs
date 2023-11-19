@@ -12,5 +12,7 @@ namespace ManagerLayer.Interfaces
         public EmployeeModel UpdateEmployee(EmployeeModel employeeModel);
         public bool DeleteEmployee(int? id);
         public EmployeeModel GetEmployeeData(int? id);
+        public EmployeeModel Login(EmpLogin empLogin);
+        public EmployeeModel GetEmployeeByName(string name);
     }
 }

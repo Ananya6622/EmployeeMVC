@@ -1,4 +1,5 @@
 ﻿using ManagerLayer.Interfaces;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ModelLayer;
 using System.Collections.Generic;
@@ -17,7 +18,7 @@ namespace EmployeePayrollMVC.Controllers
         {
             List<EmployeeModel> lstEmployee = new List<EmployeeModel>();
             lstEmployee = employeeBL.GetAllEmployees().ToList();
-
+            //ViewData["EmployeeCount"] = lstEmployee.Count;
             return View(lstEmployee);
 
         }
@@ -34,6 +35,7 @@ namespace EmployeePayrollMVC.Controllers
             if (ModelState.IsValid)
             {
                 employeeBL.AddEmployee(employeeModel);
+                //TempData["SuccessMessage"] = "Employee added successfully!";
                 return RedirectToAction("GetAllEmployees");
             }
             return View(employeeModel);
@@ -44,7 +46,7 @@ namespace EmployeePayrollMVC.Controllers
         {
             if (id == null)
             {
-                return NotFound();
+                return RedirectToAction("AddEmployee");
             }
             EmployeeModel employee = employeeBL.GetEmployeeData(id);
 
@@ -60,7 +62,7 @@ namespace EmployeePayrollMVC.Controllers
         {
             if (id != employee.EmployeeId)
             {
-                return NotFound();
+                return RedirectToAction("AddEmployee"); ;
             }
             if (ModelState.IsValid)
             {
@@ -108,6 +110,41 @@ namespace EmployeePayrollMVC.Controllers
                 return NotFound();
             }
             return View(employee);
+        }
+
+        [HttpGet]
+        
+        public IActionResult Login()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult Login([Bind] EmpLogin empLogin)
+        {
+           
+                var emp = employeeBL.Login(empLogin);
+            if(emp != null)
+            {
+                HttpContext.Session.SetInt32("EmployeeId", emp.EmployeeId);
+                return RedirectToAction("GetAllEmployees");
+            }
+                return RedirectToAction("GetAllEmployees");
+            
+        }
+
+        [HttpGet]
+        public IActionResult GetEmployeeByName(string name)
+        {
+            if (string.IsNullOrEmpty(name))
+            {
+                return NotFound();
+            }
+            EmployeeModel model = employeeBL.GetEmployeeByName(name);
+            if(model != null)
+            {
+                return View("Details",model);
+            }
+            return View(model);
         }
     }
 }

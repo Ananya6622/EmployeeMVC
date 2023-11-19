@@ -1,5 +1,7 @@
 ﻿@model IEnumerable<ModelLayer.EmployeeModel>
 
+@* <p>Total Employees: @ViewData["EmployeeCount"]</p> *@
+
 @{
     ViewData["Title"] = "GetAllEmployees";
 }
@@ -70,7 +72,8 @@
             <td>
                     @Html.ActionLink("Edit", "UpdateEmployee", new { id=item.EmployeeId  }) |
                 @Html.ActionLink("Details", "Details", new { id=item.EmployeeId  }) |
-                @Html.ActionLink("Delete", "Delete", new { id=item.EmployeeId  })
+                @Html.ActionLink("Delete", "Delete", new { id=item.EmployeeId  }) |
+                    @Html.ActionLink("GetEmployeeByName", "GetEmployeeByName", new {  id = item.EmployeeId }) 
             </td>
         </tr>
 }

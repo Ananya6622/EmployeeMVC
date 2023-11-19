@@ -132,3 +132,5 @@ C:\Users\anany\source\repos\EmployeePayrollMVC\EmployeePayrollMVC\obj\Debug\netc
 C:\Users\anany\source\repos\EmployeePayrollMVC\EmployeePayrollMVC\obj\Debug\netcoreapp3.1\EmployeePayrollMVC.dll
 C:\Users\anany\source\repos\EmployeePayrollMVC\EmployeePayrollMVC\obj\Debug\netcoreapp3.1\EmployeePayrollMVC.pdb
 C:\Users\anany\source\repos\EmployeePayrollMVC\EmployeePayrollMVC\obj\Debug\netcoreapp3.1\EmployeePayrollMVC.genruntimeconfig.cache
+C:\Users\anany\source\repos\EmployeePayrollMVC\EmployeePayrollMVC\obj\Debug\netcoreapp3.1\Razor\Views\Employee\Login.cshtml.g.cs
+C:\Users\anany\source\repos\EmployeePayrollMVC\EmployeePayrollMVC\obj\Debug\netcoreapp3.1\Razor\Views\Employee\GetEmployeeByName.cshtml.g.cs
